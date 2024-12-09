@@ -1,0 +1,33 @@
+body {
+  transition: background-color 0.3s;
+}
+.product{
+  color: black;
+  font-size : 14px;
+  background-color: rgb(141, 15, 173);
+  border: 2px solid rgb(33, 33, 33);
+}
+span{
+  color: yellow;
+}
+.icon-b{
+  font-size: 30px;
+  align-self: center;
+  border: 2px solid rgba(0, 0, 0, 0.829);
+  cursor: pointer;
+  transition: color 0.4s;
+  -webkit-transition: color 0.4s;
+  -moz-transition: color 0.4s;
+  -ms-transition: color 0.4s;
+  -o-transition: color 0.4s;
+}
+
+.icon-b:hover {
+  color: #f39c12;
+}
+
+
+.dark-mode body {
+  background-color: #333;
+  color: #fff;
+}
