@@ -48,7 +48,7 @@ class App extends Component {
       return product.id !== data.id;
     });
     this.setState({
-       products: deleteProducts     
+      products: deleteProducts,
     });
   };
   reset = () => {
@@ -60,11 +60,37 @@ class App extends Component {
       products: resetProducts,
     });
   };
- 
+  empty = () => {
+    this.setState({
+      products: [],
+    });
+  };
+
+  add = (data) => {
+    let idCounter = 0;
+
+    const newProduct = {
+      id: idCounter++,
+      name: data.name,
+      price: data.price,
+      items: data.items,
+    };
+    const updatedProducts = [...this.state.products, newProduct];
+    this.setState({
+      products: updatedProducts,
+    });
+    console.log({ newProduct });
+  };
+
   render() {
     return (
       <>
-        <Headr reset={this.reset} />
+        <Headr
+          products={this.state.products}
+          reset={this.reset}
+          empty={this.empty}
+          add={this.add}
+        />
         <Home
           products={this.state.products}
           increment={this.increment}

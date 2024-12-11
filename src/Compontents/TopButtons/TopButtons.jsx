@@ -1,18 +1,40 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
-import { MdLightMode } from "react-icons/md";
+import ThemeIcon from '../TopButtons/Darkmood'
 
-class Topbuttons extends Component {
+class TopButtons extends Component {
   render() {
+    const { products, add, empty, reset } = this.props;
     return (
-      <div className="d-flex gap-4 justify-content-center text-upperCase">
-        <MdLightMode className="icon-b" />
-        <Button variant="warning">Empty Card</Button>
-        <Button variant="warning" onClick={() => this.props.reset()}>
-          Reset Card
-        </Button>
+      <div>
+        {products.length > 0 ? (
+          <div className="mt-4 d-flex gap-4 justify-content-center text-uppercase">
+          <ThemeIcon />
+            <Button
+              variant="warning"
+              onClick={() =>
+                add({
+                  name: "product",
+                  price: 20, 
+                  items: 2, 
+                })
+              }
+            >
+              Add Item
+            </Button>
+            <Button variant="warning" onClick={empty}>
+              Empty Cart
+            </Button>
+            <Button variant="warning" onClick={reset}>
+              Reset Cart
+            </Button>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     );
   }
 }
-export default Topbuttons;
+
+export default TopButtons;

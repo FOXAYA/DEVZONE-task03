@@ -7,11 +7,12 @@ import Topbuttons from "../TopButtons/TopButtons";
 
 class Headr extends Component {
   render() {
+    const { products, add, empty, reset } = this.props;
     return (
-      <>
+          <>
         <Navbar expand="lg" className="bg-body-tertiary">
           <Container>
-            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+            <Navbar.Brand href="#home">Shoping Card</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ms-auto">
@@ -23,7 +24,12 @@ class Headr extends Component {
             </Navbar.Collapse>
           </Container>
         </Navbar>
-        <Topbuttons reset ={this.props.reset}/>
+        <Topbuttons
+          reset={reset}
+          empty={empty}
+          add={add}
+          products={products}
+        />
       </>
     );
   }
